@@ -16,14 +16,16 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
-                <Link className="navbar-brand" to={"/"}>V-Game Blog <i className="bi bi-controller"/></Link>
+                <Link className="navbar-brand mr-3 btn btn-outline-secondary" to={"/"}>Splash App <i className="bi bi-controller"/></Link>
                 {auth.authenticated ?
                     <div className="navbar-nav">
-                        <span className="navbar-text mr-3">Welcome - {(auth.firstName + " " + auth.lastName)}</span>
+                        <button className="nav-item nav-link mr-3 btn btn-outline-secondary"
+                        >Welcome - {(auth.firstName + " " + auth.lastName)} <i className="bi bi-person-circle"/>
+                        </button>
                         <Link className="nav-item nav-link mr-3 btn btn-outline-secondary"
-                              to={"/dashboard"}>Dashboard <i className="bi bi-clipboard"/></Link>
+                              to={"/dashboard"}>Dashboard <i className="bi bi-star-half"/></Link>
                         <Link className="nav-item nav-link mr-3 btn btn-outline-secondary"
-                              to={"/favorites"}>Favorites <i className="bi bi-star-half"/></Link>
+                              to={"/publications"}>Publications <i className="bi bi-clipboard"/></Link>
                         <button className="nav-item nav-link mr-3 btn btn-outline-secondary"
                                 onClick={(logoutUser)}>Logout <i className="bi bi-door-open-fill"/>
                         </button>

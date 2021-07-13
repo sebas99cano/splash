@@ -1,16 +1,16 @@
-import './App.css';
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import { useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {isLoggedInUser} from "./store/actions/AuthActions";
+import {isLoggedInUser} from "../store/actions/AuthActions";
 
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
-import Home from "./components/home/Home";
-import Signup from "./components/signup/Signup";
-import Login from "./components/login/Login";
-import NotFoundPage from "./components/NotFoundPage";
-import Dashboard from "./components/dashboard/Dashboard";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+import Home from "./home/Home";
+import Signup from "./signup/Signup";
+import Login from "./login/Login";
+import NotFoundPage from "./NotFoundPage";
+import Dashboard from "./dashboard/Dashboard";
+import Publications from "./publications/publications";
 
 
 
@@ -44,8 +44,7 @@ export const App = () =>{
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <PrivateRoute exact path="/dashboard" authenticated={auth.authenticated} component={Dashboard}/>
-                {/*<PrivateRoute exact path="/favorites" authenticated={this.state.authenticated}
-                                  component={Favorites}/>*/}
+                <PrivateRoute exact path="/publications" authenticated={auth.authenticated} component={Publications}/>
                 <PublicRoute exact path="/signup" authenticated={auth.authenticated} component={Signup}/>
                 <PublicRoute exact path="/login" authenticated={auth.authenticated} component={Login}/>
                 <Route path="*" component={NotFoundPage}/>

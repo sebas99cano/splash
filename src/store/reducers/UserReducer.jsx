@@ -3,7 +3,10 @@ import {userConstants} from "../../utils/Constants";
 const initState = {
     users: [],
     loadingUsers: false,
-    error: null
+    error: null,
+    conversations: [],
+    loadingConversations: false,
+    sendingMessage: false
 }
 
 const userReducer = (state = initState, action) => {
@@ -21,11 +24,53 @@ const userReducer = (state = initState, action) => {
                 loadingUsers: false,
             }
             break;
-        case userConstants.GET_REALTIME_USERS_FAILURE:
+        case userConstants.GET_REALTIME_USERS_CLEAR:
+            state = {
+                ...initState
+            }
+            break;
+        case userConstants.SEND_MESSAGE_REQUEST:
+            state={
+                ...state,
+                sendingMessage: true
+            }
+            break;
+        case userConstants.SEND_MESSAGE_SUCCESS:
+            state={
+                ...state,
+                sendingMessage: false
+            }
+            break;
+        case userConstants.SEND_MESSAGE_FAILURE:
+            state={
+                ...state,
+                sendingMessage: false,
+                error: action.payload.error
+            }
+            break;
+        case userConstants.GET_REALTIME_MESSAGE_REQUEST:
             state = {
                 ...state,
-                loadingUsers: false,
-                error: action.payload.error
+                loadingConversations: true
+            }
+            break;
+        case userConstants.GET_REALTIME_MESSAGE_SUCCESS:
+            state={
+                ...state,
+                conversations: action.payload.conversations,
+                loadingConversations: false
+            }
+            break;
+        case userConstants.GET_REALTIME_MESSAGE_FAILURE:
+            state={
+                ...state,
+                conversations: [],
+                loadingConversations: false
+            }
+            break;
+        case userConstants.GET_REALTIME_MESSAGE_CLEAR:
+            state = {
+                ...initState
             }
             break;
         default:

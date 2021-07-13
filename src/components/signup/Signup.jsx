@@ -26,7 +26,8 @@ const Signup = () => {
                     <form className="mt-5 py-5 px-5"
                           onSubmit={registerUser}
                           autoComplete="off">
-                        <h1>Sign Up to <Link className="title ml-2" to="/">V-Game Blog</Link></h1>
+                        <h1>Sign Up to <Link className="title ml-2" to="/"> ! ! Splash App <i className="bi bi-controller"/></Link>
+                        </h1>
                         <p className="lead">Fill in the form below to create an account.</p>
                         <div className="form-group">
                             <input className="form-control"
@@ -76,7 +77,7 @@ const Signup = () => {
                         </div>
                         <div className="form-group">
                             {/*error validation*/}
-                            <button className="btn btn-dark px-5" type="submit">Sign up <i
+                            <button className="btn btn-success px-5" type="submit">Sign up <i
                                 className="bi bi-person-circle"/></button>
                         </div>
                         <br/>
